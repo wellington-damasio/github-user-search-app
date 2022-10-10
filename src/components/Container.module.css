@@ -1,0 +1,22 @@
+.container {
+  width: 95vw;
+  max-width: 43rem;
+  border-radius: 0.9rem;
+}
+
+.container--light {
+  background-color: var(--component-bg-light-mode);
+  color: var(--text-light-mode);
+
+}
+
+.container--dark {
+  background-color: var(--component-bg-dark-mode);
+  color: var(--text-dark-mode);
+}
+
+.horizontal-spaceBetween-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
