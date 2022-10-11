@@ -1,3 +1,48 @@
 .personal-info {
-  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 6rem repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1.8rem) auto;
+  grid-template-areas:
+  'profile-pic name name'
+  'profile-pic username username'
+  'profile-pic joined-date joined-date'
+  'bio bio bio'
 }
+
+.profile-pic,
+.placeholder {
+  width: 5.4rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  grid-area: profile-pic;
+}
+
+.placeholder {
+   background-color: var(--text-light-mode);
+}
+
+.name {
+  grid-area: name;
+  color: var(--emphasis-text-light-mode);
+}
+
+.username {
+  grid-area: username;
+  align-self: start;
+  color: var(--accent);
+}
+
+.joined-date {
+  grid-area: joined-date;
+}
+
+.bio {
+  grid-area: bio;
+  margin-top: 1rem;
+}
+
+.dark .name {
+  color: var(--text-dark-mode);
+}
+
+

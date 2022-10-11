@@ -2,11 +2,11 @@ import DarkModeToggle from './DarkModeToggle.jsx'
 
 import styles from './UtilsBar.module.css'
 
-const UtilsBar = () => {
+const UtilsBar = props => {
   return(
     <div className={`${styles['utils-bar']} mb-2`}>
       <h1>devfinder</h1>
-      <DarkModeToggle darkModeOn={false}/>
+      <DarkModeToggle darkModeOn={props.darkModeOn} toggleDarkModeFunc={props.toggleDarkModeFunc}/>
     </div>
   )
 }

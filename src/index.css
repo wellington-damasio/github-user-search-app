@@ -4,7 +4,7 @@
 :root {
   /* Light Mode */
   --accent: #0079ff;
-  --text-light-mode: #4b7a9b;
+  --text-light-mode: #4b6a9b;
   --emphasis-text-light-mode: #2b3442;
   --bg-light-mode: #f6f8ff;
   --component-bg-light-mode: #fefefe;
@@ -52,6 +52,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: all 250ms ease-in;
+  transition-property: background-color color;
 }
 
 body {

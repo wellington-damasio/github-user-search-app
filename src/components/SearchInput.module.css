@@ -13,14 +13,32 @@
   font-size: 1rem;
   font-family: 'Space Mono', monospace;
   color: var(--emphasis-text-light-mode);
+  background-color: transparent;
 }
 
 .search-input input::placeholder {
   color: var(--text-light-mode);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-family: 'Space Mono', monospace;
 }
 
 .search-input input:focus {
   outline: none;
 }
+
+.search-input.dark input {
+  color: var(--text-dark-mode);
+}
+
+.search-input.dark input::placeholder {
+  color: var(--text-dark-mode);
+}
+
+
+@media only screen and (min-width: 30em) {
+  .search-input input::placeholder {
+    font-size: 0.95rem;
+  }
+}
+
+

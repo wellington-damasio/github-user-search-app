@@ -3,4 +3,22 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-light-mode);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.dark-mode-toggle:hover {
+  color: var(--emphasis-text-light-mode)
+}
+
+.dark {
+  color: var(--text-dark-mode);
+}
+
+.dark-mode-toggle.dark:hover {
+  color: #90A4D4;
 }

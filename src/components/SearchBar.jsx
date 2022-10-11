@@ -6,7 +6,7 @@ import styles from './SearchBar.module.css'
 const SearchBar = props => {
   return(
     <div className={styles['search-bar']}>
-      <SearchInput />
+      <SearchInput darkModeOn={props.darkModeOn}/>
       <Button text="Search" />
     </div>
   )

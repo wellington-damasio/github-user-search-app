@@ -1,7 +1,7 @@
 import styles from './Container.module.css'
 
 const Container = props => { 
-    let darkModeOn = props.hasBackgroundColor && props.darkMode
+    let darkModeOn = props.hasBackgroundColor && props.darkModeOn
 
     const getClassNames = () => {
         let className = `${styles.container}`
