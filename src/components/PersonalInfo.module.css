@@ -1,12 +1,12 @@
 .personal-info {
   display: grid;
   grid-template-columns: 6rem repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1.8rem) auto;
+  grid-template-rows: repeat(3, minmax(1.8rem, auto)) auto;
   grid-template-areas:
   'profile-pic name name'
   'profile-pic username username'
   'profile-pic joined-date joined-date'
-  'bio bio bio'
+  'bio bio bio';
 }
 
 .profile-pic,
@@ -45,4 +45,32 @@
   color: var(--text-dark-mode);
 }
 
+@media only screen and (min-width: 42em) {
+  .personal-info {
+    grid-template-columns: 10rem repeat(3, 1fr);
+    grid-template-rows: minmax(2rem, auto) repeat(4, 1rem) 1rem auto;
+    grid-template-areas: 
+    'profile-pic name name joined-date'
+    'profile-pic username username joined-date'
+    'profile-pic username username joined-date'
+    'profile-pic bio bio bio'
+    'profile-pic bio bio bio'
+    'profile-pic bio bio bio'
+    '. bio bio bio';
+    
+  }
 
+  .profile-pic,
+  .placeholder {
+    width: 7rem;
+  }
+
+  .joined-date {
+    justify-self: end;
+  }
+
+  .username {
+    align-self: center;
+  }
+  
+}

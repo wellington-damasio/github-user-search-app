@@ -5,27 +5,37 @@ import companyIcon from '../assets/icon-company.svg'
 
 import styles from './ProfessionalInfo.module.css'
 
-const ProfessionalInfo = () => {
+const ProfessionalInfo = props => {
+  const { location, companyWhereWorks, twitterAccount, websiteUrl } = props.profileProfessionalInfo
+
+  const renderWebsiteUrl = () => {
+    if(websiteUrl && websiteUrl !== '') {
+      return <a href={websiteUrl}>{websiteUrl}</a>
+    } else {
+      return <p> Not availabe</p>
+    }
+  }
+
   return(
     <div className={styles['professional-info']}>
       <div className={styles.wrapper}>
         <img src={locationIcon} alt="" className="icon"/>
-        <p className="info">San Francisco</p>
+        <p className="info">{ location }</p>
       </div>
 
       <div className={styles.wrapper}>
         <img src={linkIcon} alt="" className="icon"/>
-        <p className="info">https://github.blog</p>
+        {renderWebsiteUrl()}
       </div>
 
       <div className={styles.wrapper}>
         <img src={twitterIcon} alt="" className="icon"/>
-        <p className="info">Not Available</p>
+        <p className="info"> { twitterAccount } </p>
       </div>
 
       <div className={styles.wrapper}>
         <img src={companyIcon} alt="" className="icon"/>
-        <p className="info">@github</p>
+        <p className="info"> { companyWhereWorks} </p>
       </div>
     </div>
   )

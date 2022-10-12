@@ -4,10 +4,11 @@ import Button from './Button'
 import styles from './SearchBar.module.css'
 
 const SearchBar = props => {
+  console.log(props)
   return(
     <div className={styles['search-bar']}>
       <SearchInput darkModeOn={props.darkModeOn}/>
-      <Button text="Search" />
+      <Button text="Search" changeStateFunc={props.changeStateFunc}/>
     </div>
   )
 }

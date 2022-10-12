@@ -3,14 +3,25 @@
   grid-template-columns:  1fr;
   gap: 0.8rem;
 }
+
 .wrapper {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
+.professional-info a {
+  text-decoration: underline;
+}
+
 @media only screen and (min-width: 30em) {
   .professional-info {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 42em) {
+  .professional-info {
+    margin-left: 10rem;
   }
 }
