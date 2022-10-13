@@ -12,8 +12,10 @@ import ProfileInfoContainer from './ProfileInfoContainer'
 import styles from './Searcher.module.css'
 
 const octokit = new Octokit ({
-  auth: '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'
+  auth: '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'
 })
+
+
 
 const Searcher = props => {
   const [state, setState] = useState({
@@ -36,16 +38,46 @@ const Searcher = props => {
       websiteUrl: '',
       twitterAccount: '',
       companyWhereWorks: ''
-    }
+    },
+
+    username: 'octocat'
   })
 
   const handleChangeState = async () => {
-    const userData = await octokit.request(`GET /users/{username}`, {
-      username: 'wellington-damasio'
-    })
+    let userData
+    try {
+      userData = await octokit.request(`GET /users/{username}`, {
+        username: state.username
+      })
+    } catch(e) {
+      userData = {
+        personalInfo: {
+          name: '',
+          username: '',
+          joinedDate: '',
+          profilePicUrl: '',
+          bio: ''
+        },
+
+        socialInfo: {
+          repos: 0,
+          followers: 0,
+          following: 0
+        },
+
+        professionalInfo: {
+          location: '',
+          websiteUrl: '',
+          twitterAccount: '',
+          companyWhereWorks: ''
+        },
+
+        username: 'octocat'
+      }
+    }
+
 
     const data = userData.data
-    console.log(data)
 
     const transformedDate = () => {
       let result = data.created_at.slice(0, 4)
@@ -120,21 +152,24 @@ const Searcher = props => {
         companyWhereWorks: data.company
       }
     })
-    
-    console.log('State changed')
+  }
+
+  const changeCurrentUsername = newUserName => {
+    setState({...state, username: newUserName})
   }
 
   return(
     <div className={styles.searcher}>
       <Container hasBackgroundColor={true} darkModeOn={props.darkModeOn}>
-        <SearchBar darkModeOn={props.darkModeOn} changeStateFunc={handleChangeState}/>
+        <SearchBar darkModeOn={props.darkModeOn} changeStateFunc={handleChangeState} 
+          changeUsernameFunc={changeCurrentUsername}/>
       </Container>
 
       <Container hasBackgroundColor={true} darkModeOn={props.darkModeOn}>
         <ProfileInfoContainer>
             <PersonalInfo darkModeOn={props.darkModeOn} profilePersonalInfo={state.personalInfo}/>
             <SocialInfo darkModeOn={props.darkModeOn} profileSocialInfo={state.socialInfo}/>
-            <ProfessionalInfo profileProfessionalInfo={state.professionalInfo}/>
+            <ProfessionalInfo profileProfessionalInfo={state.professionalInfo} darkModeOn={props.darkModeOn}/>
 
         </ProfileInfoContainer>
        </Container>

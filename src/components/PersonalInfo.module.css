@@ -47,7 +47,7 @@
 
 @media only screen and (min-width: 42em) {
   .personal-info {
-    grid-template-columns: 10rem repeat(3, 1fr);
+    grid-template-columns: 10rem repeat(2, 1fr) minmax(18ch, 1fr);
     grid-template-rows: minmax(2rem, auto) repeat(4, 1rem) 1rem auto;
     grid-template-areas: 
     'profile-pic name name joined-date'

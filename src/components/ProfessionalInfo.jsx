@@ -9,8 +9,12 @@ const ProfessionalInfo = props => {
   const { location, companyWhereWorks, twitterAccount, websiteUrl } = props.profileProfessionalInfo
 
   const renderWebsiteUrl = () => {
-    if(websiteUrl && websiteUrl !== '') {
-      return <a href={websiteUrl}>{websiteUrl}</a>
+    if(websiteUrl) {
+      return( 
+        <a className={props.darkModeOn ? styles.link_dark: styles.link} href={websiteUrl}>
+          {websiteUrl}
+        </a>
+      )
     } else {
       return <p> Not availabe</p>
     }
@@ -20,7 +24,7 @@ const ProfessionalInfo = props => {
     <div className={styles['professional-info']}>
       <div className={styles.wrapper}>
         <img src={locationIcon} alt="" className="icon"/>
-        <p className="info">{ location }</p>
+        <p className="info">{ location ? location : 'Not available'}</p>
       </div>
 
       <div className={styles.wrapper}>
@@ -30,12 +34,12 @@ const ProfessionalInfo = props => {
 
       <div className={styles.wrapper}>
         <img src={twitterIcon} alt="" className="icon"/>
-        <p className="info"> { twitterAccount } </p>
+        <p className="info"> { twitterAccount ? twitterAccount : 'Not available'} </p>
       </div>
 
       <div className={styles.wrapper}>
         <img src={companyIcon} alt="" className="icon"/>
-        <p className="info"> { companyWhereWorks} </p>
+        <p className="info"> { companyWhereWorks ? companyWhereWorks : 'Not available'} </p>
       </div>
     </div>
   )

@@ -6,17 +6,17 @@ const SocialInfo = props => {
     <div className={`${styles['social-info']} ${props.darkModeOn ? styles.dark : ''}`}>
       <div className="wrapper">
         <p className="label">Repos</p>
-        <p className={styles.number}> { repos  }</p>
+        <p className={styles.number}> { repos ? repos : 0 }</p>
       </div>
 
       <div className="wrapper">
         <p className="label">Followers</p>
-        <p className={styles.number}> { followers }</p>
+        <p className={styles.number}> { followers ? followers : 0}</p>
       </div>
 
       <div className="wrapper">
         <p className="label">Following</p>
-        <p className={styles.number}> { following }</p>
+        <p className={styles.number}> { following ? following : 0}</p>
       </div>
     </div>
   )
