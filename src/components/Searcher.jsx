@@ -12,7 +12,7 @@ import ProfileInfoContainer from './ProfileInfoContainer'
 import styles from './Searcher.module.css'
 
 const octokit = new Octokit ({
-  auth: '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'
+  auth: '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'
 })
 
 
