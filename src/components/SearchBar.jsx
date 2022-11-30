@@ -1,15 +1,36 @@
 import SearchInput from './SearchInput'
-import Button from './Button'
 
 import styles from './SearchBar.module.css'
+import { useState } from 'react'
 
 const SearchBar = props => {
-  return(
-    <div className={styles['search-bar']}>
-      <SearchInput darkModeOn={props.darkModeOn} changeUsernameFunc={props.changeUsernameFunc}/>
-      <Button text="Search" changeStateFunc={props.changeStateFunc}/>
-    </div>
-  )
+  const [inputValue, setInputValue] = useState('')
+
+    const handleSubmit = event => {
+      event.preventDefault()
+      props.changeStateFunc()
+    }
+
+    const handleInputChange = event => {
+      props.changeUsernameFunc(event.target.value)
+      setInputValue(event.target.value)
+    }
+    return(
+      <form className={styles['search-bar']} onSubmit={handleSubmit}>
+        <SearchInput 
+          darkModeOn={props.darkModeOn} 
+          changeUserNameFunc={props.changeUserNameFunc}
+          inputChangeFunc={handleInputChange}
+          inputValue={inputValue}
+        />
+        <button
+          type='submit'
+          className={styles.btn}
+        >
+          Search
+        </button>
+      </form>
+    )
 }
 
 export default SearchBar

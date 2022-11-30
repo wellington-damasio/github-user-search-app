@@ -12,7 +12,7 @@ import ProfileInfoContainer from './ProfileInfoContainer'
 import styles from './Searcher.module.css'
 
 const octokit = new Octokit ({
-  auth: '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'
+  auth: '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'
 })
 
 
@@ -75,7 +75,6 @@ const Searcher = props => {
         username: 'octocat'
       }
     }
-
 
     const data = userData.data
 
